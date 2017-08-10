@@ -1,0 +1,131 @@
+{
+  "@id": "{{url}}/api/items/{{running_no}}",
+  "o:id": {{running_no}},
+  "@type": [
+    "o:Item",
+    "dctype:InteractiveResource"
+  ],
+"rdfs:label": "{{label}}",
+"dcterms:title": "{{title}}",
+{% if description %}
+"dcterms:description": "{{description}}",
+{% endif %}
+{% if body_format %}
+"crowds:derivedAnnoBodyFormat": "{{body_format}}",
+{% else %}
+"crowds:derivedAnnoBodyFormat": "text/plain",
+{% endif %}
+{% if required %}
+"crowds:uiRequired": "{{required}}",
+{% else %}
+"crowds:uiRequired": "False",
+{% endif %}
+{% if purpose %}
+{% set purplist = purpose.split('#') %}
+"crowds:derivedAnnoBodyPurpose": {
+"@id": "{{purpose}}",
+"o:label": "{{'oa:' ~ purplist[1]}}"
+},
+{% else %}
+"crowds:derivedAnnoBodyPurpose": {
+"@id": "oa:tagging",
+"o:label": "tagging"
+},
+{% endif %}
+{% if selector_value %}
+"crowds:uiSelectorValue": "{{selector_value}}",
+{% endif %}
+{% if body_type %}
+{% set body_type_label = 'oa:' ~ body_type.split('#')[1] %}
+"crowds:derivedAnnoBodyType": {
+"@id": "{{body_type}}",
+"o:label": "{{body_type_label}}"
+},
+{% else %}
+"crowds:derivedAnnoBodyType": {
+"o:label": "TextualBody",
+"@id": "oa:TextualBody"
+},
+{% endif %}
+{% if motivation %}
+{% set motlist = motivation.split('#') %}
+"crowds:derivedAnnoMotivatedBy": {
+"@id": "{{motivation}}",
+"o:label": "{{'oa:' ~ motlist[1]}}"
+},
+{% else %}
+"crowds:derivedAnnoMotivatedBy": {
+"@id": "oa:tagging",
+"o:label": "tagging"
+},
+{% endif %}
+{% if input_range %}
+{% if '#' in input_range %}
+{% set input_range_label = input_range.split('#')[1] %}
+{% elif 'schema' in input_range %}
+{% set input_range_label = 'schema:' ~ input_range.split('/')[3] %}
+{% else %}
+{% set ranglist = input_range.split(':')[1] %}
+{% endif %}
+"rdfs:range": {
+"@id": "{{input_range}}",
+"o:label": "{{input_range_label}}"
+},
+{% else %}
+"rdfs:range": {
+"@id": "rdfs:#literal",
+"o:label": "literal"
+},
+{% endif %}
+        {% if conforms_to %}
+{% if '#' in conforms_to %}
+{% set conflab = conforms_to.split('#')[1] %}
+{% elif '//schema' in conforms_to %}
+{% set conflab = 'schema:' ~ conforms_to.split('/')[3] %}
+{% elif 'dc/terms' in conforms_to %}
+{% set conflab = 'dcterms:' ~ conforms_to.split('/')[5] %}
+{% else %}
+{% set conflab = conforms_to.split(':')[1] %}
+{% endif %}
+"dcterms:conformsTo": {
+"@id": "{{conforms_to}}",
+"o:label": "{{conflab}}"
+},
+{% endif %}
+{% if selector_type %}
+{% set selector_label = 'madoc:' ~ selector_type.split('#')[1] %}
+"crowds:uiSelectorType": {
+"@id": "{{selector_type}}",
+"o:label": "{{selector_label}}"
+},
+{% endif %}
+{% if input_type %}
+{% set input_type_label = 'madoc:' ~ input_type.split('#')[1] %}
+"crowds:uiInputType": {
+"@id": "{{input_type}}",
+"o:label": "{{input_type_label}}"
+},
+{% endif %}
+{% if input_options %}
+"crowds:uiInputOptions": {{input_options}},
+{% endif %}
+"o:is_public": true,
+"o:item_set": [],
+"o:media": [],
+"o:modified": {
+"@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+"@value": "2017-06-28T09:21:30+00:00"
+},
+"o:owner": {
+"@id": "{{url}}/api/users/3",
+"o:id": 3
+},
+"o:resource_class": {
+"@id": "{{url}}/api/resource_classes/27",
+"o:id": 27
+},
+"o:resource_template": {
+"@id": "{{url}}/api/resource_templates/4",
+"o:id": 4
+}
+}

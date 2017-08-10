@@ -1,0 +1,8 @@
+running_no|type|parts|title|label|description|conforms_to|input_type|input_options|input_range|selector_type|selector_value|purpose|motivation|body_format|body_type|required|derived_anno_combine|derived_anno_externalize|derived_anno_humanreadable|derived_anno_serialize|ui_choice|ui_multiple|ui_group|body_label_parts
+300|element||Type of Monkey|Type of Monkey|Tell us about this monkey|dcterms:type|madoc:dropdown|Spider Monkey; Some kind of little hairy fella||||oa:tagging||text/plain||||||||||
+3|group|300;302|Monkey|Monkey Model||||||madoc:boxdraw|||||oa:TextualBody||TRUE|FALSE|FALSE|FALSE|FALSE|FALSE|madoc:form|foaf:name
+302|element||Date of Birth|Date of Birth|When was this monkey born?|schema:BirthDate|madoc:datepicker||http://schema.org/Date|||oa:tagging||text/plain||||||||||
+2|group|303;304;|Ape|Ape Model||||||madoc:boxdraw|||||oa:TextualBody||TRUE|FALSE|FALSE|FALSE|FALSE|FALSE|madoc:form|foaf:name
+303|element||Type of Ape|Type of Ape|Tell us about this ape|dcterms:type|madoc:dropdown|Gorilla; Chimpanzee; Orang-utan||||oa:tagging||text/plain||||||||||
+304|element||Date of Birth|Date of Birth|When was the ape born?|schema:BirthDate|madoc:datepicker||http://schema.org/Date|||oa:tagging||text/plain||||||||||
+1|group|2;3|Primates|Primate Model||||||madoc:boxdraw|||||oa:TextualBody||TRUE|FALSE|FALSE|FALSE|TRUE|FALSE|madoc:form|foaf:name
