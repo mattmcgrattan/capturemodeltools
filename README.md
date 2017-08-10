@@ -1,6 +1,12 @@
 # capturemodeltools
 Simple proof of concept tools for working with annotation studio capture models.
 
+Installation:
+
+pip install -r requirements.txt
+
+(can be run in a virtualenv)
+
 Usage:
 
 
