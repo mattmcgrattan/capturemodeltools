@@ -89,6 +89,7 @@ def template_element(dct, url):
     """
     Run an element dictionary through the element Jinja template to generate JSON.
 
+    :param url: base url for the server
     :param dct: dictionary to process
     :return: json string from template.
     """
@@ -105,6 +106,7 @@ def template_group(dct, context, url):
     """
     Run a group dictionary through the group Jinja template to generate JSON.
 
+    :param url: base url for the server
     :param dct: dictionary to process
     :param context: boolean to set whether to include the @context in the JSON.
     :return: json string from template.
@@ -121,6 +123,7 @@ def process_group(top_level, groupss, elemss, url_b):
     """
     Recursively process a capture model group.
 
+    :param url_b: base url for the server
     :param top_level: top level group
     :param groupss: group level rows
     :param elemss: element level rows
@@ -215,6 +218,14 @@ def main():
 
     Write JSON.
 
+    For example:
+
+        python gen_json.py -i monkeys.csv -o monkeys.json -b http://www.example.com/monkeys
+
+    Or, to generate the WW1 capture model, as JSON:
+
+        python gen_json.py -i nlw_ww1.csv -o nlw_ww1.json -b http://nlw-omeka.digtest.co.uk -t 2
+
     :return: None
     """
     logging.basicConfig(filename='capture_model.log', level=logging.DEBUG)
@@ -222,14 +233,17 @@ def main():
     parser.add_argument('-i', '--input', help='Input CSV file name', required=True)
     parser.add_argument('-o', '--output', help='Output JSON file name', required=True)
     parser.add_argument('-b', '--url_base', help='Base url for the Omeka instance', required=False)
+    parser.add_argument('-t', '--top_index', help='Numbered element to treat as the top level group', required=False)
     args = parser.parse_args()
     if not args.url_base:
         args.url_base = 'http://nlw-omeka.digtest.co.uk'
-    js = csv_load(csv_file=args.input, url_base=args.url_base)
+    if args.top_index:
+        js = csv_load(csv_file=args.input, url_base=args.url_base, top_index=args.top_index)
+    else:
+        js = csv_load(csv_file=args.input, url_base=args.url_base)
     if js:
         with open(args.output, 'w') as o:
             json.dump(js, o, indent=4, sort_keys=True)
-            # print(csv_load('import_test.csv'))
 
 
 if __name__ == "__main__":
