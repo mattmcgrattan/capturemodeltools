@@ -1,0 +1,12 @@
+running_no|type|parts|title|label|description|conforms_to|input_type|input_options|input_range|selector_type|selector_value|purpose|motivation|body_format|body_type|required|derived_anno_combine|derived_anno_externalize|derived_anno_humanreadable|derived_anno_serialize|ui_choice|ui_multiple|ui_hidden|ui_group|ui_formgroup|body_label_parts
+1|group|2;3;4;5;6|IDA: fallback|IDA:Tagging|IDA Tagging model|||||madoc:boxdraw|||oa:tagging|text/plain|oa:TextualBody||TRUE|FALSE|FALSE|TRUE|TRUE|TRUE||madoc:form||
+2|group|300|Person: fallback|IDA:Person|IDA Person model|||||madoc:boxdraw|||oa:tagging|text/plain|oa:TextualBody||TRUE|FALSE|FALSE|TRUE|FALSE|TRUE||madoc:form||
+3|group|301|School: fallback|IDA:School|IDA School model|||||madoc:boxdraw|||oa:tagging|text/plain|oa:TextualBody||TRUE|FALSE|FALSE|TRUE|FALSE|TRUE||madoc:form||
+4|group|302|Organization: fallback|IDA:Organization|IDA Organization model|||||madoc:boxdraw|||oa:tagging|text/plain|oa:TextualBody||TRUE|FALSE|FALSE|TRUE|FALSE|TRUE||madoc:form||
+5|group|303|Tribe: fallback|IDA:Tribe|IDA Tribe model|||||madoc:boxdraw|||oa:tagging|text/plain|oa:TextualBody||TRUE|FALSE|FALSE|TRUE|FALSE|TRUE||madoc:form||
+6|group|304|Place: fallback|IDA:Place|IDA Place model|||||madoc:boxdraw|||oa:tagging|text/plain|oa:TextualBody||TRUE|FALSE|FALSE|TRUE|FALSE|TRUE||madoc:form||
+300|element||Person: fallback_element|Person||oa:hasSource|madoc:fallbackOptions|foo||||oa:tagging||text/plain||||||||||||
+301|element||School: fallback_element|School||oa:hasSource|madoc:fallbackOptions|foo||||oa:tagging||text/plain||||||||||||
+302|element||Organization: fallback_element|Organization||oa:hasSource|madoc:fallbackOptions|foo||||oa:tagging||text/plain||||||||||||
+303|element||Tribe: fallback_element|Tribe||oa:hasSource|madoc:fallbackOptions|foo||||oa:tagging||text/plain||||||||||||
+304|element||Place: fallback_element|Place||oa:hasSource|madoc:fallbackOptions|foo||||oa:tagging||text/plain||||||||||||
