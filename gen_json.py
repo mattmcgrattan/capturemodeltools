@@ -108,13 +108,16 @@ def template_element(dct, url, elem_t, irc_t, u_t):
         return template.render(dct)
 
 
-def template_group(dct, context, url, grp_t, elem_t, irc_t, u_t):
+def template_group(dct, url, grp_t, elem_t, irc_t, u_t, nlw_c, ida_c):
     """
     Run a group dictionary through the group Jinja template to generate JSON.
 
     :param elem_t:
     :param grp_t:
     :param irc_t:
+    :param nlw_c:
+    :param ida_c:
+    :param u_t:
     :param url: base url for the server
     :param dct: dictionary to process
     :param context: boolean to set whether to include the @context in the JSON.
@@ -122,12 +125,13 @@ def template_group(dct, context, url, grp_t, elem_t, irc_t, u_t):
     """
     with open('cs_group.jt', 'r') as f:
         t = f.read()
-        dct['context'] = context
         dct['url'] = url
         dct['group_t'] = grp_t
         dct['element_t'] = elem_t
         dct['irclass_t'] = irc_t
         dct['user'] = u_t
+        dct['nlw_context'] = nlw_c
+        dct['ida_context'] = ida_c
         template = Template(t)
         return template.render(dct)  # json.loads(template.render(dct))
 
@@ -141,6 +145,7 @@ def process_group(top_level, groupss, elemss, url_b, group_t, element_t, ir_c, u
     :param groupss: group level rows
     :param elemss: element level rows
     :param u: Omeka User ID
+    :param ida_c: Boolean, use IDA context.
     :param group_t: ID for group resource template
     :param element_t: ID for element resource template.
     :param ir_c: ID for the Interactive Resource class
@@ -152,8 +157,10 @@ def process_group(top_level, groupss, elemss, url_b, group_t, element_t, ir_c, u
     if group_parts:
         top_level['has_parts'] = json.dumps(
             [json.loads(template_group(process_group(top_level=g, groupss=groupss, elemss=elemss, url_b=url_b,
-                                                     group_t=group_t, element_t=element_t, ir_c=ir_c, u=u),
-                                       context=False, url=url_b, grp_t=group_t, elem_t=element_t, irc_t=ir_c, u_t=u))
+                                                     group_t=group_t, element_t=element_t, ir_c=ir_c, u=u
+                                                     ),
+                                       url=url_b, grp_t=group_t, elem_t=element_t, irc_t=ir_c, u_t=u,
+                                       ida_c=False, nlw_c=False))
              for g in group_parts])
     elif element_parts:
         top_level['has_parts'] = json.dumps([json.loads(template_element(item, url=url_b, elem_t=element_t, irc_t=ir_c,
@@ -164,7 +171,7 @@ def process_group(top_level, groupss, elemss, url_b, group_t, element_t, ir_c, u
     return top_level
 
 
-def csv_load(csv_file, url_base, group, element, irclass, user, top_index='1', delimiter='|'):
+def csv_load(csv_file, url_base, group, element, irclass, user, top_index='1', delimiter='|', ida_context=False):
     """
     Load a CSV file and return formatted JSON. Defaults to assuming a pipe-delimited CSV file.
 
@@ -182,6 +189,10 @@ def csv_load(csv_file, url_base, group, element, irclass, user, top_index='1', d
     :param delimiter: the delimiter for the CSV, defaults to pipe '|'
     :return: json suitable for import into Omeka via the capture model importer module.
     """
+    if ida_context:
+        nlw_context = False
+    else:
+        nlw_context = True
     with open(csv_file, 'r') as csv_in:
         rows = list(csv.DictReader(csv_in, delimiter=delimiter))
         groups = [row for row in rows if row['type'] == 'group']
@@ -190,7 +201,8 @@ def csv_load(csv_file, url_base, group, element, irclass, user, top_index='1', d
         group_dict = json.loads(
             template_group((process_group(top_level=top, groupss=groups, elemss=elements, url_b=url_base,
                                           group_t=group, element_t=element, ir_c=irclass, u=user)),
-                           context=True, url=url_base, grp_t=group, elem_t=element, irc_t=irclass, u_t=user))
+                           nlw_c=nlw_context, ida_c=ida_context,
+                           url=url_base, grp_t=group, elem_t=element, irc_t=irclass, u_t=user))
         group_json = json.dumps(group_dict)
         group_json = group_json.replace('TRUE', 'True').replace('FALSE', 'False')  # fix case on Booleans
         return json.loads(group_json)
@@ -265,6 +277,7 @@ def main():
     parser.add_argument('-e', '--element_id', help='ID for the Crowd Source Element resource template', required=False)
     parser.add_argument('-c', '--irclass', help='ID for the Interactive Resource class', required=False)
     parser.add_argument('-u', '--user', help='Omeka User ID for the Owner', required=False)
+    parser.add_argument('-x', '--context', help='IDA Context', required=False)
     args = parser.parse_args()
     if not args.url_base:
         args.url_base = 'http://nlw-omeka.digtest.co.uk'
@@ -276,12 +289,14 @@ def main():
         args.element_id = 4
     if not args.user:
         args.user = 2
+    if not args.context:
+        args.conext = False
     if args.top_index:
         js = csv_load(csv_file=args.input, url_base=args.url_base, top_index=args.top_index, group=args.group_id,
-                      element=args.element_id, irclass=args.irclass, user=args.user)
+                      element=args.element_id, irclass=args.irclass, user=args.user, ida_context=args.context)
     else:
         js = csv_load(csv_file=args.input, url_base=args.url_base, group=args.group_id,
-                      element=args.element_id, irclass=args.irclass, user=args.user)
+                      element=args.element_id, irclass=args.irclass, user=args.user, ida_context=args.context)
     if js:
         with open(args.output, 'w') as o:
             json.dump(js, o, indent=4, sort_keys=True)
