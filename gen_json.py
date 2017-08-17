@@ -201,7 +201,10 @@ def csv_gen(csv_file, delimiter='|'):
         ('derived_anno_serialize', None),
         ('ui_choice', None),
         ('ui_multiple', None),
+        ('ui_hidden', None),
         ('ui_group', None),
+        ('ui_formgroup', None),
+        ('ui_inputoptions', None),
         ('body_label_parts', None)
     ])
     with open(csv_file, 'w') as csv_out:
