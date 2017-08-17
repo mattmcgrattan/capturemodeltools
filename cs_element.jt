@@ -128,15 +128,15 @@
 "@value": "2017-06-28T09:21:30+00:00"
 },
 "o:owner": {
-"@id": "{{url}}/api/users/3",
-"o:id": 3
+"@id": "{{url}}/api/users/{{user}}",
+"o:id": {{user}}
 },
 "o:resource_class": {
-"@id": "{{url}}/api/resource_classes/27",
-"o:id": 27
+"@id": "{{url}}/api/resource_classes/{{irclass_t}}",
+"o:id": {{irclass_t}}
 },
 "o:resource_template": {
-"@id": "{{url}}/api/resource_templates/4",
-"o:id": 4
+"@id": "{{url}}/api/resource_templates/{{element_t}}",
+"o:id": {{element_t}}
 }
 }

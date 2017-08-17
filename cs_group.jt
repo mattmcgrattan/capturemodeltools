@@ -161,15 +161,15 @@
 "@value": "2017-06-27T09:36:54+00:00"
 },
 "o:owner": {
-"@id": "{{url}}/api/users/3",
-"o:id": 3
+"@id": "{{url}}/api/users/{{user}}",
+"o:id": {{user}}
 },
 "o:resource_class": {
-"@id": "{{url}}/api/resource_classes/27",
-"o:id": 27
+"@id": "{{url}}/api/resource_classes/{{irclass_t}}",
+"o:id": {{irclass_t}}
 },
 "o:resource_template": {
-"@id": "{{url}}/api/resource_templates/5",
-"o:id": 5
+"@id": "{{url}}/api/resource_templates/{{group_t}}",
+"o:id": {{group_t}}
 }
 }
