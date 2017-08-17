@@ -113,7 +113,12 @@
 "crowds:uiHidden": "{{ui_hidden}}",
 {% endif %}
 {% if ui_formgroup %}
-"crowds:uiFormGroup": "{{ui_formgroup}}",
+{% set ui_formgrouplabel =  ui_formgroup.title() %}
+"crowds:uiFormGroup":
+{
+"@id": "{{ui_formgroup}}",
+"o:label": "{{ui_formgrouplabel}}"
+},
 {% endif %}
 "o:is_public": true,
 "o:item_set": [],
