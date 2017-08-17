@@ -204,7 +204,6 @@ def csv_gen(csv_file, delimiter='|'):
         ('ui_hidden', None),
         ('ui_group', None),
         ('ui_formgroup', None),
-        ('ui_inputoptions', None),
         ('body_label_parts', None)
     ])
     with open(csv_file, 'w') as csv_out:
