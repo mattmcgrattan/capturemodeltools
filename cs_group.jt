@@ -212,7 +212,11 @@
 "crowds:uiChoice": "{{ui_choice}}",
 {% endif %}
 {% if ui_group %}
+{% if '#' in ui_group %}
 {% set ui_group_label = 'madoc:' ~ ui_group.split('#')[1] %}
+{% else %}
+{% set ui_group_label = ui_group %}
+{% endif %}
 "crowds:uiGroup": {
 "@id": "{{ui_group}}",
 "o:label": "{{ui_group_label}}"
