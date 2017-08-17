@@ -109,6 +109,12 @@
 {% if input_options %}
 "crowds:uiInputOptions": {{input_options}},
 {% endif %}
+{% if ui_hidden %}
+"crowds:uiHidden": "{{ui_hidden}}",
+{% endif %}
+{% if ui_formgroup %}
+"crowds:uiFormGroup": "{{ui_formgroup}}",
+{% endif %}
 "o:is_public": true,
 "o:item_set": [],
 "o:media": [],
