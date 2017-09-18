@@ -1,0 +1,1391 @@
+{
+    "@context": {
+        "bibo": {
+            "@id": "http://purl.org/ontology/bibo/", 
+            "vocabulary_id": "3", 
+            "vocabulary_label": "Bibliographic Ontology"
+        }, 
+        "cnt": "http://www.w3.org/2011/content#", 
+        "crowds": {
+            "@id": "http://www.digirati.com/ns/crowds", 
+            "vocabulary_id": "15", 
+            "vocabulary_label": "Crowds: Crowd Source Vocabulary for defining capture models."
+        }, 
+        "dcterms": {
+            "@id": "http://purl.org/dc/terms/", 
+            "vocabulary_id": "1", 
+            "vocabulary_label": "Dublin Core"
+        }, 
+        "dctype": {
+            "@id": "http://purl.org/dc/dcmitype/", 
+            "vocabulary_id": "2", 
+            "vocabulary_label": "Dublin Core Type"
+        }, 
+        "doap": {
+            "@id": "http://usefulinc.com/ns/doap#", 
+            "vocabulary_id": "5", 
+            "vocabulary_label": "Description of a Project (DOAP) vocabulary"
+        }, 
+        "exif": {
+            "@id": "http://www.w3.org/2003/12/exif/ns", 
+            "vocabulary_id": "8", 
+            "vocabulary_label": "Vocabulary to describe an Exif format picture data."
+        }, 
+        "foaf": {
+            "@id": "http://xmlns.com/foaf/0.1/", 
+            "vocabulary_id": "4", 
+            "vocabulary_label": "Friend of a Friend"
+        }, 
+        "iiif": {
+            "@id": "http://iiif.io/api/image/2#", 
+            "vocabulary_id": "9", 
+            "vocabulary_label": "IIIF Image API Ontology"
+        }, 
+        "madoc": {
+            "@id": "http://www.digirati.com/ns/madoc#", 
+            "vocabulary_id": "18", 
+            "vocabulary_label": "Madoc: crowd source vocab for rendering UI"
+        }, 
+        "o": "http://omeka.org/s/vocabs/o#", 
+        "oa": {
+            "@id": "http://www.w3.org/ns/oa#", 
+            "vocabulary_id": "10", 
+            "vocabulary_label": "Open Annotation (oa prefix until update of Omeka)"
+        }, 
+        "rdfs": {
+            "@id": "http://www.w3.org/2000/01/rdf-schema", 
+            "vocabulary_id": "17", 
+            "vocabulary_label": "The RDF Schema vocabulary (RDFS)"
+        }, 
+        "sc": {
+            "@id": "http://iiif.io/api/presentation/2#", 
+            "vocabulary_id": "12", 
+            "vocabulary_label": "Shared Canvas"
+        }, 
+        "schema": {
+            "@id": "http://schema.org/", 
+            "vocabulary_id": "14", 
+            "vocabulary_label": "Schema.org"
+        }, 
+        "svcs": {
+            "@id": "http://rdfs.org/sioc/ns#", 
+            "vocabulary_id": "13", 
+            "vocabulary_label": "SIOC Services Ontology Module"
+        }, 
+        "time": "http://www.w3.org/2006/time#"
+    }, 
+    "@id": "http://omeka.dlcs-ida.org/api/item_sets/1", 
+    "@type": [
+        "o:ItemSet", 
+        "dctype:InteractiveResource"
+    ], 
+    "crowds:derivedAnnoBodyLabelParts": {
+        "@id": "http://xmlns.com/foaf/name", 
+        "o:label": "foaf:name"
+    }, 
+    "crowds:derivedAnnoCombine": "True", 
+    "crowds:derivedAnnoExternalize": "False", 
+    "crowds:derivedAnnoHumanReadable": "False", 
+    "crowds:derivedAnnoSerialize": "True", 
+    "crowds:uiChoice": "False", 
+    "crowds:uiGroup": {
+        "@id": "madoc:form", 
+        "o:label": "madoc:"
+    }, 
+    "crowds:uiMultiple": "True", 
+    "dcterms:hasPart": [
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/300", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "dcterms:title", 
+                "o:label": "title"
+            }, 
+            "dcterms:title": "Title", 
+            "o:id": 300, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Title", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/301", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madox:textarea", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "dcterms:description", 
+                "o:label": "description"
+            }, 
+            "dcterms:title": "Description", 
+            "o:id": 301, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Description", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/302", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:name", 
+                "o:label": "name"
+            }, 
+            "dcterms:title": "Name", 
+            "o:id": 302, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Name", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/303", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:alternateName", 
+                "o:label": "alternateName"
+            }, 
+            "dcterms:title": "alternateName", 
+            "o:id": 303, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Alternate Name", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/304", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:additionalName", 
+                "o:label": "additionalName"
+            }, 
+            "dcterms:title": "additionalName", 
+            "o:id": 304, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Additional Name", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/305", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:memberOf", 
+                "o:label": "memberOf"
+            }, 
+            "dcterms:title": "memberOf", 
+            "o:id": 305, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Member Of (Organisation)", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/306", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:affiliation", 
+                "o:label": "affiliation"
+            }, 
+            "dcterms:title": "affiliation", 
+            "o:id": 306, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Affiliated with (Organisation)", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/307", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:datepicker", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:birthDate", 
+                "o:label": "birthDate"
+            }, 
+            "dcterms:title": "birthDate", 
+            "o:id": 307, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Date of Birth", 
+            "rdfs:range": {
+                "@id": "http://schema.org/Date", 
+                "o:label": "schema:Date"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/308", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:mappicker", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:birthPlace", 
+                "o:label": "birthPlace"
+            }, 
+            "dcterms:title": "birthPlace", 
+            "o:id": 308, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Place of Birth", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/309", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:datepicker", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:deathDate", 
+                "o:label": "deathDate"
+            }, 
+            "dcterms:title": "deathDate", 
+            "o:id": 309, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Date of Death", 
+            "rdfs:range": {
+                "@id": "http://schema.org/Date", 
+                "o:label": "schema:Date"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/310", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:deathPlace", 
+                "o:label": "deathPlace"
+            }, 
+            "dcterms:title": "deathPlace", 
+            "o:id": 310, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Place of Death", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/311", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:gender", 
+                "o:label": "gender"
+            }, 
+            "dcterms:title": "gender", 
+            "o:id": 311, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Gender", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/312", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:children", 
+                "o:label": "children"
+            }, 
+            "dcterms:title": "children", 
+            "o:id": 312, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Children", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/313", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:parent", 
+                "o:label": "parent"
+            }, 
+            "dcterms:title": "parent", 
+            "o:id": 313, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Parent", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/314", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:sibling", 
+                "o:label": "sibling"
+            }, 
+            "dcterms:title": "sibling", 
+            "o:id": 314, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Sibling", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/315", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:relatedTo", 
+                "o:label": "relatedTo"
+            }, 
+            "dcterms:title": "relatedTo", 
+            "o:id": 315, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Related To", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/316", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:spouse", 
+                "o:label": "spouse"
+            }, 
+            "dcterms:title": "spouse", 
+            "o:id": 316, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Spouse", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/317", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:employee", 
+                "o:label": "employee"
+            }, 
+            "dcterms:title": "employee", 
+            "o:id": 317, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Employee of", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/318", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:mainEntityOfPage", 
+                "o:label": "mainEntityOfPage"
+            }, 
+            "dcterms:title": "mainEntityOfPage", 
+            "o:id": 318, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Topic Page URI", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/319", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:additionalType", 
+                "o:label": "additionalType"
+            }, 
+            "dcterms:title": "additionalType", 
+            "o:id": 319, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Additional Type", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/320", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:sameAs", 
+                "o:label": "sameAs"
+            }, 
+            "dcterms:title": "sameAs", 
+            "o:id": 320, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Same person as", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/321", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "schema:relatedLink", 
+                "o:label": "relatedLink"
+            }, 
+            "dcterms:title": "relatedLink", 
+            "o:id": 321, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "Related link", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }, 
+        {
+            "@id": "http://omeka.dlcs-ida.org/api/items/322", 
+            "@type": [
+                "o:Item", 
+                "dctype:InteractiveResource"
+            ], 
+            "crowds:derivedAnnoBodyFormat": "text/plain", 
+            "crowds:derivedAnnoBodyPurpose": {
+                "@id": "oa:tagging", 
+                "o:label": "oa:"
+            }, 
+            "crowds:derivedAnnoBodyType": {
+                "@id": "oa:TextualBody", 
+                "o:label": "TextualBody"
+            }, 
+            "crowds:derivedAnnoMotivatedBy": {
+                "@id": "oa:tagging", 
+                "o:label": "tagging"
+            }, 
+            "crowds:uiInputType": {
+                "@id": "madoc:textbox", 
+                "o:label": "madoc:"
+            }, 
+            "crowds:uiRequired": "False", 
+            "dcterms:conformsTo": {
+                "@id": "rdfs:label", 
+                "o:label": "label"
+            }, 
+            "dcterms:title": "label", 
+            "o:id": 322, 
+            "o:is_public": true, 
+            "o:item_set": [], 
+            "o:media": [], 
+            "o:modified": {
+                "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+                "@value": "2017-06-28T09:21:30+00:00"
+            }, 
+            "o:owner": {
+                "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+                "o:id": 3
+            }, 
+            "o:resource_class": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+                "o:id": 27
+            }, 
+            "o:resource_template": {
+                "@id": "http://omeka.dlcs-ida.org/api/resource_templates/4", 
+                "o:id": 4
+            }, 
+            "rdfs:label": "label", 
+            "rdfs:range": {
+                "@id": "rdfs:#literal", 
+                "o:label": "literal"
+            }
+        }
+    ], 
+    "dcterms:title": "Person", 
+    "o:created": {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+        "@value": "2017-05-19T12:08:08+00:00"
+    }, 
+    "o:id": 1, 
+    "o:is_open": false, 
+    "o:is_public": true, 
+    "o:items": {
+        "@id": "http://omeka.dlcs-ida.org/api/items?item_set_id=1"
+    }, 
+    "o:modified": {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime", 
+        "@value": "2017-06-27T09:36:54+00:00"
+    }, 
+    "o:owner": {
+        "@id": "http://omeka.dlcs-ida.org/api/users/3", 
+        "o:id": 3
+    }, 
+    "o:resource_class": {
+        "@id": "http://omeka.dlcs-ida.org/api/resource_classes/27", 
+        "o:id": 27
+    }, 
+    "o:resource_template": {
+        "@id": "http://omeka.dlcs-ida.org/api/resource_templates/5", 
+        "o:id": 5
+    }, 
+    "rdfs:label": "IDA:Person"
+}
