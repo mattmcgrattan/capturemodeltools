@@ -242,6 +242,8 @@ def csv_gen(csv_file, delimiter='|'):
         ('ui_group', None),
         ('ui_formgroup', None),
         ('body_label_parts', None)
+        ('ui_component', None)
+
     ])
     with open(csv_file, 'w') as csv_out:
         dw = csv.DictWriter(

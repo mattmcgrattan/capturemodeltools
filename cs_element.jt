@@ -131,6 +131,8 @@
 {% endif %}
 {% if ui_hidden %}
 "crowds:uiHidden": "{{ui_hidden}}",
+{% else %}
+"crowds:uiHidden": "False",
 {% endif %}
 {% if ui_formgroup %}
 {% set ui_formgrouplabel =  ui_formgroup.title() %}
