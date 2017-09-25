@@ -222,9 +222,13 @@
 "o:label": "{{ui_group_label}}"
 },
 {% endif %}
-
 {% if ui_multiple %}
 "crowds:uiMultiple": "{{ui_multiple}}",
+{% endif %}
+{% if ui_component %}
+"crowds:uiComponent": "{{ui_component}}",
+{% else %}
+"crowds:uiComponent": "resource",
 {% endif %}
 "dcterms:hasPart":{{has_parts}},
 "o:created": {
