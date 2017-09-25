@@ -152,7 +152,6 @@ def template_element(dct, url, elem_t, irc_t, u_t):
                 dct[k] = expanded
                 label_key = k + '_label'
                 dct[label_key] = v
-        print(json.dumps(dct, indent=4))
         return template.render(sanitise_keys(dct))
 
 
@@ -181,15 +180,12 @@ def template_group(dct, url, grp_t, elem_t, irc_t, u_t, nlw_c, ida_c):
         dct['ida_context'] = ida_c
         template = Template(t)
         for k,v in dct.items():
-            print('Key:', k)
-            print('Value:', v)
             if not isinstance(v, bool):
                 expanded = generate_expanded(value=v)
             if expanded:
                 dct[k] = expanded
                 label_key = k + '_label'
                 dct[label_key] = v
-        print(json.dumps(dct, indent=4))
         return template.render(sanitise_keys(dct))  # json.loads(template.render(dct))
 
 
