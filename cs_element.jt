@@ -1,14 +1,14 @@
 {
-  "@id": "{{url}}/api/items/{{running_no}}",
+  "@id": "{{url}}/api/items/{{dcterms_identifier}}",
   "o:id": {{dcterms_identifier}},
   "@type": [
     "o:Item",
     "dctype:InteractiveResource"
   ],
-"rdfs:label": "{{label}}",
-"dcterms:title": "{{title}}",
+"rdfs:label": "{{rdfs_label}}",
+"dcterms:title": "{{dcterms_title}}",
 {% if dcterms_description %}
-"dcterms:description": "{{description}}",
+"dcterms:description": "{{dcterms_description}}",
 {% endif %}
 {% if crowds_derivedAnnoBodyFormat %}
 "crowds:derivedAnnoBodyFormat": "{{crowds_derivedAnnoBodyFormat}}",

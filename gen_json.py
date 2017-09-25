@@ -10,6 +10,7 @@ import json
 from jinja2 import Template
 from collections import OrderedDict
 import unicodecsv as csv
+import ontospy
 
 
 def get_uri(uri):
@@ -98,14 +99,14 @@ def template_element(dct, url, elem_t, irc_t, u_t):
     """
     with open('cs_element.jt', 'r') as f:
         t = f.read()
-        if dct['input_options']:  # for drop-downs.
-            dct['input_options'] = json.dumps([x.strip() for x in dct['input_options'].split(';')])
+        if dct['crowds:uiInputOptions']:  # for drop-downs.
+            dct['crowds:uiInputOptions'] = json.dumps([x.strip() for x in dct['crowds:uiInputOptions'].split(';')])
         dct['url'] = url
         dct['element_t'] = elem_t
         dct['irclass_t'] = irc_t
         dct['user'] = u_t
         template = Template(t)
-        return template.render(dct)
+        return template.render(sanitise_keys(dct))
 
 
 def template_group(dct, url, grp_t, elem_t, irc_t, u_t, nlw_c, ida_c):
@@ -120,7 +121,6 @@ def template_group(dct, url, grp_t, elem_t, irc_t, u_t, nlw_c, ida_c):
     :param u_t:
     :param url: base url for the server
     :param dct: dictionary to process
-    :param context: boolean to set whether to include the @context in the JSON.
     :return: json string from template.
     """
     with open('cs_group.jt', 'r') as f:
@@ -133,7 +133,19 @@ def template_group(dct, url, grp_t, elem_t, irc_t, u_t, nlw_c, ida_c):
         dct['nlw_context'] = nlw_c
         dct['ida_context'] = ida_c
         template = Template(t)
-        return template.render(dct)  # json.loads(template.render(dct))
+        return template.render(sanitise_keys(dct))  # json.loads(template.render(dct))
+
+
+def sanitise_keys(d):
+    """
+    Strip all of the colons out of the key names
+    :param d:
+    :return: dict
+    """
+    new_d = {}
+    for k, v in d.items():
+        new_d[k.replace(':', '_')] = v
+    return new_d
 
 
 def process_group(top_level, groupss, elemss, url_b, group_t, element_t, ir_c, u):
@@ -145,17 +157,16 @@ def process_group(top_level, groupss, elemss, url_b, group_t, element_t, ir_c, u
     :param groupss: group level rows
     :param elemss: element level rows
     :param u: Omeka User ID
-    :param ida_c: Boolean, use IDA context.
     :param group_t: ID for group resource template
     :param element_t: ID for element resource template.
     :param ir_c: ID for the Interactive Resource class
     :return: top_level row with parts
     """
-    parts = top_level['parts'].split(';')
-    group_parts = [x for x in groupss if x['running_no'] in parts]
-    element_parts = [x for x in elemss if x['running_no'] in parts]
+    parts = top_level['dcterms:hasPart'].split(';')
+    group_parts = [x for x in groupss if x['dcterms:identifier'] in parts]
+    element_parts = [x for x in elemss if x['dcterms:identifier'] in parts]
     if group_parts:
-        top_level['has_parts'] = json.dumps(
+        top_level['dcterms:hasPart'] = json.dumps(
             [json.loads(template_group(process_group(top_level=g, groupss=groupss, elemss=elemss, url_b=url_b,
                                                      group_t=group_t, element_t=element_t, ir_c=ir_c, u=u
                                                      ),
@@ -163,9 +174,10 @@ def process_group(top_level, groupss, elemss, url_b, group_t, element_t, ir_c, u
                                        ida_c=False, nlw_c=False))
              for g in group_parts])
     elif element_parts:
-        top_level['has_parts'] = json.dumps([json.loads(template_element(item, url=url_b, elem_t=element_t, irc_t=ir_c,
-                                                                         u_t=u))
-                                             for item in element_parts])
+        top_level['dcterms:hasPart'] = json.dumps([json.loads(template_element(item, url=url_b, elem_t=element_t,
+                                                                               irc_t=ir_c,
+                                                                               u_t=u))
+                                                   for item in element_parts])
     else:
         pass
     return top_level
@@ -179,6 +191,7 @@ def csv_load(csv_file, url_base, group, element, irclass, user, top_index='1', d
 
     N.B. does no validation of the input.
 
+    :param ida_context:
     :param csv_file: the CSV file to open.
     :param url_base: the base for the Omeka server, e.g. 'http://nlw-omeka.digtest.co.uk'
     :param group: the Omeka ID number for the Crowd Source Group resource template
@@ -195,9 +208,9 @@ def csv_load(csv_file, url_base, group, element, irclass, user, top_index='1', d
         nlw_context = True
     with open(csv_file, 'r') as csv_in:
         rows = list(csv.DictReader(csv_in, delimiter=delimiter))
-        groups = [row for row in rows if row['type'] == 'group']
-        elements = [row for row in rows if row['type'] == 'element']
-        top = [t for t in groups if t['running_no'] == top_index][0]
+        groups = [row for row in rows if row['dcterms:type'] == 'madoc:group']
+        elements = [row for row in rows if row['dcterms:type'] == 'madoc:element']
+        top = [t for t in groups if t['dcterms:identifier'] == top_index][0]
         group_dict = json.loads(
             template_group((process_group(top_level=top, groupss=groups, elemss=elements, url_b=url_base,
                                           group_t=group, element_t=element, ir_c=irclass, u=user)),
@@ -241,10 +254,40 @@ def csv_gen(csv_file, delimiter='|'):
         ('ui_hidden', None),
         ('ui_group', None),
         ('ui_formgroup', None),
-        ('body_label_parts', None)
+        ('body_label_parts', None),
         ('ui_component', None)
 
     ])
+    with open(csv_file, 'w') as csv_out:
+        dw = csv.DictWriter(
+            csv_out, delimiter=delimiter, fieldnames=all_fields)
+        dw.writeheader()
+
+
+def csv_gen_vocab(csv_file, delimiter='|'):
+    """
+    Generate an empty CSV file for creating capture model using the Crowds RDF source. Will parse and append all of the
+    vocab URIs it finds in the
+    :param csv_file: filename to write to
+    :param delimiter: delimiter for CSV, defaults to pipe '|'.
+    """
+    # dcterms_uri = 'http://dublincore.org/2012/06/14/dcterms.rdf'
+    # dcterms_model = ontospy.Ontospy(dcterms_uri)
+    # dcterms_properties = dcterms_model.properties
+    all_fields = OrderedDict([
+        ('dcterms:identifier', None),
+        ('dcterms:type', None),
+        ('dcterms:hasPart', None),
+        ('dcterms:title', None),
+        ('rdfs:label', None),
+        ('dcterms:description', None),
+        ('dcterms:conformsTo', None),
+        ('rdfs:range', None)],
+    )
+    crowds = ontospy.Ontospy(
+        "https://raw.githubusercontent.com/digirati-co-uk/annotation-vocab/master/crowds.rdf")
+    for p in crowds.properties:
+        all_fields[p.qname] = None
     with open(csv_file, 'w') as csv_out:
         dw = csv.DictWriter(
             csv_out, delimiter=delimiter, fieldnames=all_fields)
@@ -266,6 +309,10 @@ def main():
     Or, to generate the WW1 capture model, as JSON:
 
         python gen_json.py -i nlw_ww1.csv -o nlw_ww1.json -b http://nlw-omeka.digtest.co.uk -t 2
+
+    IDA model:
+
+        python gen_json.py -i ida_new_test.csv -o ida_new_test.json -u 2 -t 1 -c 27 -g 3 -e 1
 
     :return: None
     """
