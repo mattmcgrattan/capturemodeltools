@@ -99,3 +99,5 @@ ENV/
 
 # mypy
 .mypy_cache/
+/capture_model.log
+/pip-selfcheck.json
