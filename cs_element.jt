@@ -1,33 +1,33 @@
 {
   "@id": "{{url}}/api/items/{{running_no}}",
-  "o:id": {{running_no}},
+  "o:id": {{dcterms_identifier}},
   "@type": [
     "o:Item",
     "dctype:InteractiveResource"
   ],
 "rdfs:label": "{{label}}",
 "dcterms:title": "{{title}}",
-{% if description %}
+{% if dcterms_description %}
 "dcterms:description": "{{description}}",
 {% endif %}
-{% if body_format %}
-"crowds:derivedAnnoBodyFormat": "{{body_format}}",
+{% if crowds_derivedAnnoBodyFormat %}
+"crowds:derivedAnnoBodyFormat": "{{crowds_derivedAnnoBodyFormat}}",
 {% else %}
 "crowds:derivedAnnoBodyFormat": "text/plain",
 {% endif %}
-{% if required %}
-"crowds:uiRequired": "{{required}}",
+{% if crowds_uiRequired %}
+"crowds:uiRequired": "{{crowds_uiRequired}}",
 {% else %}
 "crowds:uiRequired": "False",
 {% endif %}
-{% if purpose %}
-{% if '#' in purpose %}
-{% set purplist = 'oa:' ~ purpose.split('#')[1] %}
+{% if crowds_derivedAnnoBodyPurpose %}
+{% if '#' in crowds_derivedAnnoBodyPurpose %}
+{% set purplist = 'oa:' ~ crowds_derivedAnnoBodyPurpose.split('#')[1] %}
 {% else %}
-{% set purplist = purpose %}
+{% set purplist = crowds_derivedAnnoBodyPurpose %}
 {% endif %}
 "crowds:derivedAnnoBodyPurpose": {
-"@id": "{{purpose}}",
+"@id": "{{crowds_derivedAnnoBodyPurpose}}",
 "o:label": "{{purplist}}"
 },
 {% else %}
@@ -36,13 +36,13 @@
 "o:label": "tagging"
 },
 {% endif %}
-{% if selector_value %}
-"crowds:uiSelectorValue": "{{selector_value}}",
+{% if crowds_uiSelectorValue %}
+"crowds:uiSelectorValue": "{{crowds_uiSelectorValue}}",
 {% endif %}
-{% if body_type %}
-{% set body_type_label = 'oa:' ~ body_type.split('#')[1] %}
+{% if crowds_derivedAnnoBodyType %}
+{% set body_type_label = 'oa:' ~ crowds_derivedAnnoBodyType.split('#')[1] %}
 "crowds:derivedAnnoBodyType": {
-"@id": "{{body_type}}",
+"@id": "{{crowds_derivedAnnoBodyType}}",
 "o:label": "{{body_type_label}}"
 },
 {% else %}
@@ -51,18 +51,18 @@
 "@id": "oa:TextualBody"
 },
 {% endif %}
-{% if motivation %}
-{% if '#' in motivation %}
-{% set motlist = 'oa:' ~ motivation.split('#')[1] %}
+{% if crowds_derivedAnnoMotivatedBy %}
+{% if '#' in crowds_derivedAnnoMotivatedBy %}
+{% set motlist = 'oa:' ~ crowds_derivedAnnoMotivatedBy.split('#')[1] %}
 {% else %}
-{% if 'oa:' in motivation %}
-{% set motlist = motivation %}
+{% if 'oa:' in crowds_derivedAnnoMotivatedBy %}
+{% set motlist = crowds_derivedAnnoMotivatedBy %}
 {% else %}
-{% set motlist = 'oa:' ~ motivation %}
+{% set motlist = 'oa:' ~ crowds_derivedAnnoMotivatedBy %}
 {% endif %}
 {% endif %}
 "crowds:derivedAnnoMotivatedBy": {
-"@id": "{{motivation}}",
+"@id": "{{crowds_derivedAnnoMotivatedBy}}",
 "o:label": "{{motlist}}"
 },
 {% else %}
@@ -71,16 +71,16 @@
 "o:label": "oa:tagging"
 },
 {% endif %}
-{% if input_range %}
-{% if '#' in input_range %}
-{% set input_range_label = input_range.split('#')[1] %}
+{% if rdfs_range %}
+{% if '#' in rdfs_range %}
+{% set input_range_label = rdfs_range.split('#')[1] %}
 {% elif 'schema' in input_range %}
-{% set input_range_label = 'schema:' ~ input_range.split('/')[3] %}
+{% set input_range_label = 'schema:' ~ rdfs_range.split('/')[3] %}
 {% else %}
-{% set ranglist = input_range.split(':')[1] %}
+{% set ranglist = rdfs_range.split(':')[1] %}
 {% endif %}
 "rdfs:range": {
-"@id": "{{input_range}}",
+"@id": "{{rdfs_range}}",
 "o:label": "{{input_range_label}}"
 },
 {% else %}
@@ -89,56 +89,56 @@
 "o:label": "literal"
 },
 {% endif %}
-        {% if conforms_to %}
-{% if '#' in conforms_to %}
-{% set conflab = conforms_to.split('#')[1] %}
-{% elif '//schema' in conforms_to %}
-{% set conflab = 'schema:' ~ conforms_to.split('/')[3] %}
-{% elif 'dc/terms' in conforms_to %}
-{% set conflab = 'dcterms:' ~ conforms_to.split('/')[5] %}
+        {% if dcterms_conformsTo %}
+{% if '#' in dcterms_conformsTo %}
+{% set conflab = dcterms_conformsTo.split('#')[1] %}
+{% elif '//schema' in dcterms_conformsTo %}
+{% set conflab = 'schema:' ~ dcterms_conformsTo.split('/')[3] %}
+{% elif 'dc/terms' in dcterms_conformsTo %}
+{% set conflab = 'dcterms:' ~ dcterms_conformsTo.split('/')[5] %}
 {% else %}
-{% set conflab = conforms_to.split(':')[1] %}
+{% set conflab = dcterms_conformsTo.split(':')[1] %}
 {% endif %}
 "dcterms:conformsTo": {
-"@id": "{{conforms_to}}",
+"@id": "{{dcterms_conformsTo}}",
 "o:label": "{{conflab}}"
 },
 {% endif %}
-{% if selector_type %}
-{% if '#' in selector_type %}
-{% set selector_label = 'madoc:' ~ selector_type.split('#')[1] %}
+{% if crowds_uiSelectorType %}
+{% if '#' in crowds_uiSelectorType %}
+{% set selector_label = 'madoc:' ~ crowds_uiSelectorType.split('#')[1] %}
 {% else %}
-{% set selector_label = selector_type %}
+{% set selector_label = crowds_uiSelectorType %}
 {% endif %}
 "crowds:uiSelectorType": {
-"@id": "{{selector_type}}",
+"@id": "{{crowds_uiSelectorType}}",
 "o:label": "{{selector_label}}"
 },
 {% endif %}
-{% if input_type %}
-{% if '#' in input_type %}
-{% set input_type_label = 'madoc:' ~ input_type.split('#')[1] %}
+{% if crowds_uiInputType %}
+{% if '#' in crowds_uiInputType %}
+{% set input_type_label = 'madoc:' ~ crowds_uiInputType.split('#')[1] %}
 {% else %}
-{% set input_type_label = input_type %}
+{% set input_type_label = crowds_uiInputType %}
 {% endif %}
 "crowds:uiInputType": {
-"@id": "{{input_type}}",
+"@id": "{{crowds_uiInputType}}",
 "o:label": "{{input_type_label}}"
 },
 {% endif %}
-{% if input_options %}
-"crowds:uiInputOptions": {{input_options}},
+{% if crowds_uiInputOptions %}
+"crowds:uiInputOptions": {{crowds_uiInputOption}},
 {% endif %}
-{% if ui_hidden %}
-"crowds:uiHidden": "{{ui_hidden}}",
+{% if crowds_uiHidden %}
+"crowds:uiHidden": "{{crowds_uiHidden}}",
 {% else %}
 "crowds:uiHidden": "False",
 {% endif %}
-{% if ui_formgroup %}
-{% set ui_formgrouplabel =  ui_formgroup.title() %}
+{% if crowds_uiFormGroup %}
+{% set ui_formgrouplabel =  crowds_uiFormGroup.title() %}
 "crowds:uiFormGroup":
 {
-"@id": "{{ui_formgroup}}",
+"@id": "{{crowds_uiFormGroup}}",
 "o:label": "{{ui_formgrouplabel}}"
 },
 {% endif %}
