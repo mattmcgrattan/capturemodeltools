@@ -1,0 +1,47 @@
+./bl-tools/requirements.txt     urllib3 (1.22)
+./brilleaux/requirements.txt
+./capture-models/requirements.txt   urllib3 (1.21.1)
+./capturemodeltools/requirements.txt
+./ida-annotation-listener/requirements.txt
+./ida-annotation-topics/requirements.txt        cryptography (2.0.3) urllib3 (1.22)
+./ida-iiif-bookmarks/requirements.txt   urllib3 (1.21.1)
+./ida-ingest-tools/requirements.txt     urllib3 (1.22)
+./ida-manifest-proxy/requirements.txt   urllib3 (1.22)
+./ida_helpers/requirements.txt
+./jankel/requirements.txt
+./jp2iser/requirements.txt
+./Leaflet-IIIF/node_modules/jasmine-core/requirements.txt
+./MCP/requirements.txt
+./meros/loris/requirements.txt
+./meros/requirements.txt
+./meros-cache/requirements.txt      urllib3 (1.20)
+./meros-harvest/requirements.txt
+./meros-ingest/requirements.txt
+./mirador_annos/mirador/bower_components/jasmine/requirements.txt
+./mirador_annos/mirador/node_modules/jasmine-core/requirements.txt
+./montague/requirements.txt
+./montague_listener/requirements.txt
+./montague_processor/requirements.txt
+./montague_processor_old/requirements.txt
+./movies-python-neo4jrestclient/requirements.txt
+./natbakke/requirements.txt
+./nlw-frontend/node_modules/jasmine-core/requirements.txt
+./ocr-fileformat/vendor/hocr-spec-python/requirements.txt
+./ocropy/requirements.txt
+./presley/requirements.txt
+./rs-data-proto/requirements.txt    urllib3 (1.22)
+./rs-graph/requirements.txt     urllib3 (1.22)
+./rs-ingest/requirements.txt
+./rs-sync/requirements.txt
+./rs-tools/requirements.txt
+./scrapymcscrapeface/requirements.txt
+./sorting-room-old/node_modules/jasmine-core/requirements.txt
+./sorting-room-old2/node_modules/jasmine-core/requirements.txt
+./sorting-room-old3/node_modules/jasmine-core/requirements.txt
+./sorting-room-old4/node_modules/jasmine-core/requirements.txt
+./sorting-room-old5/node_modules/jasmine-core/requirements.txt
+./Sublist3r/requirements.txt
+./watt-roy/requirements.txt
+./waylon/requirements.txt
+./wilko/requirements.txt
+./zibaldone/requirements.txt    urllib3 (1.21.1)

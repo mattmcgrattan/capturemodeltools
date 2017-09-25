@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>annotation-application</title>
+    <meta name="description" content="">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp-jVRfkWWvxqOFm2k-75qlFePh1oT3Ig&libraries=places"></script>
+</head>
+<body>
+
+<div data-behaviour="annotation-studio-core"
+     data-manifest="http://dams.llgc.org.uk/iiif/2.0/4690294/manifest.json"
+     data-canvas="http://dams.llgc.org.uk/iiif/2.0/4690294/canvas/4690357.json"
+     data-elucidate-server="https://annotation-dev.digtest.co.uk/annotation/w3c/"></div>
+<div style="margin: 10px">
+    <div style="padding-right: 350px;">
+        <div data-behaviour="annotation-studio-viewer"
+             data-width="6735"
+             data-height="4997"
+             data-viewer="OpenSeadragonViewer"
+             style="background-color: #000;border-radius: 3px; overflow: hidden">
+            <div style="text-align: center;">
+                <img style="height: 70vh;filter:blur(3px)" src="http://dams.llgc.org.uk/iiif/2.0/image/4690357/full/256,/0/default.jpg" alt=""/>
+            </div>
+        </div>
+    </div>
+    <div style="width: 350px; position: absolute; right: 0; top: 0; padding-right: 20px">
+        <div data-behaviour="annotation-studio-resource-editor"
+             data-resource-templates="http://nlw-omeka.digtest.co.uk/wilko/nlw/2249"
+             data-canvas="http://dams.llgc.org.uk/iiif/2.0/4690294/canvas/4690357.json">
+            loading resource editor...
+        </div>
+    </div>
+</div>
+<div style="clear: both;">
+    <div data-behaviour="annotation-studio-region-annotations">
+        loading annotations...
+    </div>
+</div>
+<style type="text/css">
+    .c-image.c-image--sm-sq {
+        float: left;
+    }
+    .osd-viewer__region-item.osd-viewer__region-item--selected {
+        border-color: #DB5E1B;
+    }
+    .box-selector {
+        border-color: #DB5E1B;
+        border-width: 2px;
+    }
+</style>
+<script type="text/javascript" src="/vendor-aaa98b.js"></script><script type="text/javascript" src="/index.bundle.js"></script></body>
+</html>
