@@ -13,6 +13,14 @@ import unicodecsv as csv
 import ontospy
 
 
+# global namespace lookup
+with open('context.json', 'r') as c:
+    namespaces = json.load(c)['@context']
+namespaces['crowds'] = 'http://www.digirati.com/ns/crowds#'
+namespaces['madoc'] = 'http://www.digirati.com/ns/madoc#'
+namespaces['oa'] = 'https://www.w3.org/ns/oa#'
+
+
 def get_uri(uri):
     """
     Get text from a URI
@@ -86,6 +94,38 @@ def yaml_d(yaml_str):
         return None
 
 
+def qname(val):
+    if val:
+        if ':' in val and 'http://' not in val:
+            ns, value = val.split(':')
+            try:
+                ns_uri = namespaces[ns]
+            except:
+                ns_uri = None
+            if ns_uri and value:
+                return ''.join([ns_uri, value])
+            else:
+                return None
+        else:
+            return None
+    else:
+        return None
+
+
+def generate_expanded(value):
+    """
+    Generate an full URI for a value, if it can be identified in the namespaces.
+
+    :param field: field content
+    :return: uri or none
+    """
+    field_uri = qname(value)
+    if field_uri:
+        return field_uri
+    else:
+        return None
+
+
 def template_element(dct, url, elem_t, irc_t, u_t):
     """
     Run an element dictionary through the element Jinja template to generate JSON.
@@ -106,6 +146,13 @@ def template_element(dct, url, elem_t, irc_t, u_t):
         dct['irclass_t'] = irc_t
         dct['user'] = u_t
         template = Template(t)
+        for k,v in dct.items():
+            expanded = generate_expanded(value=v)
+            if expanded:
+                dct[k] = expanded
+                label_key = k + '_label'
+                dct[label_key] = v
+        print(json.dumps(dct, indent=4))
         return template.render(sanitise_keys(dct))
 
 
@@ -133,6 +180,16 @@ def template_group(dct, url, grp_t, elem_t, irc_t, u_t, nlw_c, ida_c):
         dct['nlw_context'] = nlw_c
         dct['ida_context'] = ida_c
         template = Template(t)
+        for k,v in dct.items():
+            print('Key:', k)
+            print('Value:', v)
+            if not isinstance(v, bool):
+                expanded = generate_expanded(value=v)
+            if expanded:
+                dct[k] = expanded
+                label_key = k + '_label'
+                dct[label_key] = v
+        print(json.dumps(dct, indent=4))
         return template.render(sanitise_keys(dct))  # json.loads(template.render(dct))
 
 

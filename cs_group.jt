@@ -161,23 +161,31 @@
 "dctype:InteractiveResource"
 ],
 {% if dcterms_conformsTo %}
-{% if '#' in dcterms_conformsTo %}
-{% set conflab = dcterms_conformsTo.split('#')[1] %}
-{% elif '//schema' in dcterms_conformsTo %}
-{% set conflab = 'schema:' ~ dcterms_conformsTo.split('/')[3] %}
-{% elif 'dc/terms' in dcterms_conformsTo %}
-{% set conflab = 'dcterms:' ~ dcterms_conformsTo.split('/')[5] %}
-{% else %}
-{% set conflab = dcterms_conformsTo.split(':')[1] %}
-{% endif %}
+{% if dcterms_conformsTo_label %}
 "dcterms:conformsTo": {
 "@id": "{{dcterms_conformsTo}}",
-"o:label": "{{conflab}}"
+"o:label": "{{dcterms_conformsTo_label}}"
 },
+{% else %}
+"dcterms:conformsTo": {
+"@id": "{{dcterms_conformsTo}}",
+"o:label": "{{dcterms_conformsTo}}"
+},
+{% endif %}
 {% endif %}
 
 {% if crowds_uiSelectorType %}
-"crowds:uiSelectorType": "{{crowds_uiSelectorType}}",
+{% if crowds_uiSelectorType_label %}
+"crowds:uiSelectorType": {
+"@id": "{{crowds_uiSelectorType}}",
+"o:label": "{{crowds_uiSelectorType}}"
+},
+{% else %}
+"crowds:uiSelectorType": {
+"@id": "{{crowds_uiSelectorType}}",
+"o:label": "{{crowds_uiSelectorType}}"
+},
+{% endif %}
 {% else %}
 "crowds:uiSelectorType": {
 "@id": "WholeCanvasSelector",
@@ -224,18 +232,20 @@
 {% if crowds_uiChoice %}
 "crowds:uiChoice": "{{crowds_uiChoice}}",
 {% endif %}
+
 {% if crowds_uiGroup %}
-{% if '#' in crowds_uiGroup %}
-{% set ui_group_label = 'madoc:' ~ crowds_uiGroup.split('#')[1] %}
-{% else %}
-{% set ui_group_label = crowds_uiGroup %}
-{% endif %}
+{% if crowds_uiGroup_label %}
 "crowds:uiGroup": {
 "@id": "{{crowds_uiGroup}}",
-"o:label": "{{ui_group_label}}"
+"o:label": "{{crowds_uiGroup_label}}"
+},
+{% else %}
+"crowds:uiGroup": {
+"@id": "{{crowds_uiGroup}}",
+"o:label": "{{crowds_uiGroup}}"
 },
 {% endif %}
-
+{% endif %}
 {% if crowds_uiMultiple %}
 "crowds:uiMultiple": "{{crowds_uiMultiple}}",
 {% endif %}

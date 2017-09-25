@@ -21,110 +21,111 @@
 "crowds:uiRequired": "False",
 {% endif %}
 {% if crowds_derivedAnnoBodyPurpose %}
-{% if '#' in crowds_derivedAnnoBodyPurpose %}
-{% set purplist = 'oa:' ~ crowds_derivedAnnoBodyPurpose.split('#')[1] %}
-{% else %}
-{% set purplist = crowds_derivedAnnoBodyPurpose %}
-{% endif %}
+{% if crowds_derivedAnnoBodyPurpose_label %}
 "crowds:derivedAnnoBodyPurpose": {
 "@id": "{{crowds_derivedAnnoBodyPurpose}}",
-"o:label": "{{purplist}}"
+"o:label": "{{crowds_derivedAnnoBodyPurpose_label}}"
 },
 {% else %}
 "crowds:derivedAnnoBodyPurpose": {
-"@id": "oa:tagging",
-"o:label": "tagging"
+"@id": "{{crowds_derivedAnnoBodyPurpose}}",
+"o:label": "{{crowds_derivedAnnoBodyPurpose}}"
 },
+{% endif %}
 {% endif %}
 {% if crowds_uiSelectorValue %}
 "crowds:uiSelectorValue": "{{crowds_uiSelectorValue}}",
 {% endif %}
 {% if crowds_derivedAnnoBodyType %}
-{% set body_type_label = 'oa:' ~ crowds_derivedAnnoBodyType.split('#')[1] %}
+{% if crowds_derivedAnnoBodyType_label %}
 "crowds:derivedAnnoBodyType": {
 "@id": "{{crowds_derivedAnnoBodyType}}",
-"o:label": "{{body_type_label}}"
+"o:label": "{{crowds_derivedAnnoBodyType_label}}"
 },
 {% else %}
 "crowds:derivedAnnoBodyType": {
-"o:label": "TextualBody",
+"@id": "{{crowds_derivedAnnoBodyType}}",
+"o:label": "{{crowds_derivedAnnoBodyType}}"
+},
+{% endif %}
+"crowds:derivedAnnoBodyType": {
+"o:label": "https://www.w3.org/ns/oa#TextualBody",
 "@id": "oa:TextualBody"
 },
 {% endif %}
 {% if crowds_derivedAnnoMotivatedBy %}
-{% if '#' in crowds_derivedAnnoMotivatedBy %}
-{% set motlist = 'oa:' ~ crowds_derivedAnnoMotivatedBy.split('#')[1] %}
-{% else %}
-{% if 'oa:' in crowds_derivedAnnoMotivatedBy %}
-{% set motlist = crowds_derivedAnnoMotivatedBy %}
-{% else %}
-{% set motlist = 'oa:' ~ crowds_derivedAnnoMotivatedBy %}
-{% endif %}
-{% endif %}
+{% if crowds_derivedAnnoMotivatedBy_label %}
 "crowds:derivedAnnoMotivatedBy": {
 "@id": "{{crowds_derivedAnnoMotivatedBy}}",
-"o:label": "{{motlist}}"
+"o:label": "{{crowds_derivedAnnoMotivatedBy_label}}"
 },
 {% else %}
+"crowds:derivedAnnoMotivatedBy": {
+"@id": "{{crowds_derivedAnnoMotivatedBy}}",
+"o:label": "{{crowds_derivedAnnoMotivatedBy}}"
+},
+{% endif %}
 "crowds:derivedAnnoMotivatedBy": {
 "@id": "oa:tagging",
 "o:label": "oa:tagging"
 },
 {% endif %}
 {% if rdfs_range %}
-{% if '#' in rdfs_range %}
-{% set input_range_label = rdfs_range.split('#')[1] %}
-{% elif 'schema' in input_range %}
-{% set input_range_label = 'schema:' ~ rdfs_range.split('/')[3] %}
-{% else %}
-{% set ranglist = rdfs_range.split(':')[1] %}
-{% endif %}
+{% if rdfs_range_label %}
 "rdfs:range": {
 "@id": "{{rdfs_range}}",
-"o:label": "{{input_range_label}}"
+"o:label": "{{rdfs_range_label}}"
 },
 {% else %}
 "rdfs:range": {
-"@id": "rdfs:#literal",
-"o:label": "literal"
+"@id": "{{rdfs_range}}",
+"o:label": "{{rdfs_range}}"
 },
 {% endif %}
-        {% if dcterms_conformsTo %}
-{% if '#' in dcterms_conformsTo %}
-{% set conflab = dcterms_conformsTo.split('#')[1] %}
-{% elif '//schema' in dcterms_conformsTo %}
-{% set conflab = 'schema:' ~ dcterms_conformsTo.split('/')[3] %}
-{% elif 'dc/terms' in dcterms_conformsTo %}
-{% set conflab = 'dcterms:' ~ dcterms_conformsTo.split('/')[5] %}
 {% else %}
-{% set conflab = dcterms_conformsTo.split(':')[1] %}
+"rdfs:range": {
+"@id": "http://www.w3.org/2000/01/rdf-schema#literal",
+"o:label": "rdfs:literal"
+},
 {% endif %}
+{% if dcterms_conformsTo %}
+{% if dcterms_conformsTo_label %}
 "dcterms:conformsTo": {
 "@id": "{{dcterms_conformsTo}}",
-"o:label": "{{conflab}}"
+"o:label": "{{dcterms_conformsTo_label}}"
 },
+{% else %}
+"dcterms:conformsTo": {
+"@id": "{{dcterms_conformsTo}}",
+"o:label": "{{dcterms_conformsTo}}"
+},
+{% endif %}
 {% endif %}
 {% if crowds_uiSelectorType %}
-{% if '#' in crowds_uiSelectorType %}
-{% set selector_label = 'madoc:' ~ crowds_uiSelectorType.split('#')[1] %}
-{% else %}
-{% set selector_label = crowds_uiSelectorType %}
-{% endif %}
+{% if crowds_uiSelectorType_label %}
 "crowds:uiSelectorType": {
 "@id": "{{crowds_uiSelectorType}}",
-"o:label": "{{selector_label}}"
+"o:label": "{{crowds_uiSelectorType}}"
 },
+{% else %}
+"crowds:uiSelectorType": {
+"@id": "{{crowds_uiSelectorType}}",
+"o:label": "{{crowds_uiSelectorType}}"
+},
+{% endif %}
 {% endif %}
 {% if crowds_uiInputType %}
-{% if '#' in crowds_uiInputType %}
-{% set input_type_label = 'madoc:' ~ crowds_uiInputType.split('#')[1] %}
-{% else %}
-{% set input_type_label = crowds_uiInputType %}
-{% endif %}
+{% if crowds_uiInputType_label %}
 "crowds:uiInputType": {
 "@id": "{{crowds_uiInputType}}",
-"o:label": "{{input_type_label}}"
+"o:label": "{{crowds_uiInputType_label}}"
 },
+{% else %}
+"crowds:uiInputType": {
+"@id": "{{crowds_uiInputType}}",
+"o:label": "{{crowds_uiInputType}}"
+},
+{% endif %}
 {% endif %}
 {% if crowds_uiInputOptions %}
 "crowds:uiInputOptions": {{crowds_uiInputOption}},
