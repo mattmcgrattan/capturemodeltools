@@ -219,6 +219,9 @@
 "crowds:derivedAnnoExternalize": "False",
 {% endif %}
 
+{% if crowds_externalResourceModel %}
+"crowds:externalResourceModel": "{{crowds_externalResourceModel}}",
+{% endif %}
 {% if crowds_derivedAnnoHumanReadable %}
 "crowds:derivedAnnoHumanReadable": "{{crowds_derivedAnnoHumanReadable}}",
 {% else %}
