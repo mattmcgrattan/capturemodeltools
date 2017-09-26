@@ -1,5 +1,7 @@
 {
     "@context": {
+        "crowds": "http://www.digirati.com/ns/crowds#",
+        "madoc": "http://www.digirati.com/ns/madoc#",
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "foaf": "http://xmlns.com/foaf/0.1/",
         "yago": "http://yago-knowledge.org/resource/",

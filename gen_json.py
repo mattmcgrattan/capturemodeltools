@@ -12,13 +12,9 @@ from collections import OrderedDict
 import unicodecsv as csv
 import ontospy
 
-
 # global namespace lookup
 with open('context.json', 'r') as c:
     namespaces = json.load(c)['@context']
-namespaces['crowds'] = 'http://www.digirati.com/ns/crowds#'
-namespaces['madoc'] = 'http://www.digirati.com/ns/madoc#'
-namespaces['oa'] = 'https://www.w3.org/ns/oa#'
 
 
 def get_uri(uri):
@@ -98,6 +94,7 @@ def qname(val):
     if val:
         if ':' in val and 'http://' not in val:
             ns, value = val.split(':')
+            # noinspection PyBroadException
             try:
                 ns_uri = namespaces[ns]
             except:
@@ -116,7 +113,7 @@ def generate_expanded(value):
     """
     Generate an full URI for a value, if it can be identified in the namespaces.
 
-    :param field: field content
+    :param value:
     :return: uri or none
     """
     field_uri = qname(value)
@@ -146,7 +143,7 @@ def template_element(dct, url, elem_t, irc_t, u_t):
         dct['irclass_t'] = irc_t
         dct['user'] = u_t
         template = Template(t)
-        for k,v in dct.items():
+        for k, v in dct.items():
             expanded = generate_expanded(value=v)
             if expanded:
                 dct[k] = expanded
@@ -179,9 +176,11 @@ def template_group(dct, url, grp_t, elem_t, irc_t, u_t, nlw_c, ida_c):
         dct['nlw_context'] = nlw_c
         dct['ida_context'] = ida_c
         template = Template(t)
-        for k,v in dct.items():
+        for k, v in dct.items():
             if not isinstance(v, bool):
                 expanded = generate_expanded(value=v)
+            else:
+                expanded = None
             if expanded:
                 dct[k] = expanded
                 label_key = k + '_label'
